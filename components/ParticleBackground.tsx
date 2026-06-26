@@ -34,10 +34,16 @@ export default function ParticleBackground() {
       constructor() {
         this.x = Math.random() * (canvas?.width || 0);
         this.y = Math.random() * (canvas?.height || 0);
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.color = 'rgba(229, 168, 60, 0.2)';
+        this.size = Math.random() * 1.5 + 0.3;
+        this.speedX = (Math.random() - 0.5) * 0.35;
+        this.speedY = (Math.random() - 0.5) * 0.35;
+        const palette = [
+          'rgba(200, 138, 42, 0.25)',
+          'rgba(245, 201, 106, 0.18)',
+          'rgba(123, 94, 167, 0.15)',
+          'rgba(255, 255, 255, 0.07)',
+        ];
+        this.color = palette[Math.floor(Math.random() * palette.length)];
       }
 
       update() {
@@ -62,7 +68,7 @@ export default function ParticleBackground() {
 
     const init = () => {
       particles = [];
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 150; i++) {
         particles.push(new Particle());
       }
     };

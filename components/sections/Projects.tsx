@@ -8,77 +8,99 @@ const projects = [
     title: 'AI Resume Forge',
     description: 'A university project that uses AI to build and optimize professional resumes based on user skills.',
     tech: ['Next.js', 'Claude API', 'Tailwind'],
-    category: 'University'
+    category: 'University',
+    accent: 'from-[#c88a2a] to-[#f5c96a]',
   },
   {
     title: 'AI Quiz App',
     description: 'A console-based intelligent quiz application that adapts difficulty based on performance.',
     tech: ['Python', 'AI Logic'],
-    category: 'Console'
+    category: 'Console',
+    accent: 'from-[#7b5ea7] to-[#c88a2a]',
   },
   {
     title: 'Medic Website',
     description: 'A comprehensive platform connecting patients with doctors for appointments and consultations.',
     tech: ['React', 'Node.js', 'MongoDB'],
-    category: 'Web'
+    category: 'Web',
+    accent: 'from-[#c88a2a] to-[#e5a830]',
   },
   {
     title: 'Undo Redo Engine',
     description: 'A robust command pattern engine in C++ supporting infinite undo and redo operations.',
     tech: ['C++', 'Data Structures'],
-    category: 'Desktop'
+    category: 'Desktop',
+    accent: 'from-[#e5a830] to-[#f5c96a]',
   },
   {
     title: 'Console Mini OS',
     description: 'A simulated mini operating system built in C++ with basic file management and shell commands.',
     tech: ['C++', 'Operating Systems'],
-    category: 'System'
-  }
+    category: 'System',
+    accent: 'from-[#c88a2a] to-[#7b5ea7]',
+  },
 ];
 
-function ProjectCard({ project }: { project: typeof projects[0] }) {
+function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: number }) {
   return (
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.9, y: 20 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(200, 138, 42, 0.15)' }}
-      transition={{ duration: 0.3 }}
-      className="relative h-full"
+      transition={{ delay: idx * 0.1 }}
+      whileHover={{ y: -10 }}
+      className="group card-shimmer h-full"
     >
-      <div className="bg-card-bg p-8 border border-border-default hover:border-accent-primary transition-all duration-300 h-full flex flex-col group shadow-lg hover:shadow-[0_20px_50px_rgba(200,138,42,0.2)]">
-        <div className="text-xs font-dm-sans text-accent-primary mb-3 uppercase tracking-widest font-semibold">{project.category}</div>
-        <h3 className="text-2xl font-bold font-syne mb-4 text-foreground group-hover:text-accent-glow transition-colors duration-300">
-          {project.title}
-        </h3>
-        <p className="text-text-muted font-dm-sans font-light mb-8 flex-grow leading-relaxed">
-          {project.description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2 mb-8">
-          {project.tech.map((t, idx) => (
-            <span key={idx} className="text-[10px] px-3 py-1.5 bg-[#111008] border border-border-default rounded-sm text-text-hint uppercase font-dm-sans tracking-widest font-semibold group-hover:border-accent-primary/50 group-hover:text-accent-primary transition-all duration-300">
+      <div className="bg-card-bg border border-border-card hover:border-accent-primary transition-all duration-400 h-full flex flex-col relative overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
+        {/* Top gradient accent line */}
+        <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${project.accent} opacity-70 group-hover:opacity-100 transition-opacity duration-400`} />
+
+        {/* Category pill */}
+        <div className="px-8 pt-8 pb-0">
+          <span className={`inline-block text-[9px] font-dm-sans font-bold uppercase tracking-[3px] px-3 py-1 rounded-full bg-gradient-to-r ${project.accent} text-background mb-4`}>
+            {project.category}
+          </span>
+
+          <h3 className="text-xl font-syne font-bold text-foreground group-hover:text-accent-glow transition-colors duration-300 mb-3 leading-tight">
+            {project.title}
+          </h3>
+          <p className="text-text-muted font-dm-sans font-light text-sm leading-relaxed mb-6">
+            {project.description}
+          </p>
+        </div>
+
+        {/* Tech tags */}
+        <div className="px-8 pb-6 flex flex-wrap gap-2 mt-auto">
+          {project.tech.map((t, i) => (
+            <span
+              key={i}
+              className="text-[9px] px-3 py-1.5 glass border-border-default text-text-muted uppercase font-dm-sans font-semibold tracking-widest rounded-full group-hover:border-accent-primary/40 group-hover:text-accent-primary transition-all duration-300"
+            >
               {t}
             </span>
           ))}
         </div>
-        
-        <div className="flex items-center gap-4 mt-auto">
-          <motion.button 
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-3 border border-border-default text-text-muted hover:border-accent-primary hover:text-accent-primary hover:bg-accent-primary/5 transition-all duration-300 rounded-sm"
+
+        {/* Action buttons */}
+        <div className="px-8 pb-8 flex gap-3 border-t border-border-default pt-5">
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: -3 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-10 h-10 flex items-center justify-center glass border-border-default text-text-muted hover:border-accent-primary hover:text-accent-primary transition-all duration-300 rounded-full"
           >
-            <FaGithub size={18} />
+            <FaGithub size={16} />
           </motion.button>
-          <motion.button 
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-3 border border-border-default text-text-muted hover:border-accent-primary hover:text-accent-primary hover:bg-accent-primary/5 transition-all duration-300 rounded-sm"
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: 3 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-10 h-10 flex items-center justify-center glass border-border-default text-text-muted hover:border-accent-primary hover:text-accent-primary transition-all duration-300 rounded-full"
           >
-            <FaExternalLinkAlt size={18} />
+            <FaExternalLinkAlt size={14} />
           </motion.button>
         </div>
+
+        {/* Corner decoration */}
+        <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-accent-primary/6 to-transparent rounded-tl-full" />
       </div>
     </motion.div>
   );
@@ -86,30 +108,37 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 md:gap-8">
+    <section id="projects" className="py-28 relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-accent-primary/5 blur-[80px] pointer-events-none -z-10" />
+
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-accent-primary font-dm-sans tracking-[0.2em] text-xs uppercase mb-4 font-semibold">MY WORK</h3>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-syne text-foreground leading-tight">FEATURED <br /><span className="text-accent-primary">PROJECTS</span></h2>
+            <p className="section-label">My Work</p>
+            <h2 className="section-title text-4xl md:text-5xl lg:text-6xl">
+              FEATURED <br />
+              <span className="gradient-text">PROJECTS</span>
+            </h2>
           </motion.div>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-text-muted max-w-md md:text-right font-dm-sans font-light text-sm md:text-base leading-relaxed"
+            className="text-text-muted max-w-sm md:text-right font-dm-sans font-light text-sm leading-relaxed"
           >
-            A selection of my recent academic and personal projects exploring AI, Web, and System development.
+            A selection of my recent academic and personal projects exploring
+            AI, Web, and System development.
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, idx) => (
-            <ProjectCard key={idx} project={project} />
+            <ProjectCard key={idx} project={project} idx={idx} />
           ))}
         </div>
       </div>
