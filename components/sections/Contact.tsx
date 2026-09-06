@@ -34,7 +34,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
           >
-            LET'S <span className="text-accent-primary">CONNECT</span>
+            LET&apos;S <span className="text-accent-primary">CONNECT</span>
           </motion.h2>
         </div>
 
@@ -50,10 +50,10 @@ export default function Contact() {
           >
             <div>
               <h3 className="text-2xl sm:text-3xl font-syne font-bold text-foreground mb-4">
-                Let's discuss your next project!
+                Let&apos;s discuss your next project!
               </h3>
               <p className="text-text-muted font-dm-sans text-base leading-relaxed mb-8">
-                I'm currently available for freelance work, academic collaborations, 
+                I&apos;m currently available for freelance work, academic collaborations, 
                 and open to exciting full-time opportunities. Reach out via email or connect with me on social media.
               </p>
             </div>

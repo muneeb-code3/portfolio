@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Star, GitFork } from 'lucide-react';
+import { Star, GitFork } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 import Image from 'next/image';
 
 const pinnedRepos = [
@@ -56,7 +57,7 @@ export default function GithubStats() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 btn-secondary px-6 py-3 rounded-xl font-dm-sans font-bold uppercase tracking-widest text-xs"
           >
-            <Github size={16} /> Follow on GitHub
+            <FaGithub size={16} /> Follow on GitHub
           </motion.a>
         </div>
 
@@ -69,7 +70,7 @@ export default function GithubStats() {
             className="w-full lg:w-2/3 bg-white p-6 sm:p-8 rounded-3xl shadow-[0_4px_20px_rgba(30,58,138,0.04)] border border-slate-100"
           >
             <h3 className="text-xl font-syne font-bold text-foreground mb-6 flex items-center gap-2">
-              <Github className="text-accent-primary" /> Contribution Overview
+              <FaGithub className="text-accent-primary" /> Contribution Overview
             </h3>
             
             <div className="w-full relative min-h-[200px] bg-slate-50 rounded-xl overflow-hidden flex flex-col items-center justify-center p-4">

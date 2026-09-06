@@ -76,7 +76,7 @@ export default function Testimonials() {
               </div>
 
               <p className="text-text-muted font-dm-sans text-sm leading-relaxed mb-8 relative z-10 min-h-[100px]">
-                "{test.content}"
+                &quot;{test.content}&quot;
               </p>
 
               <div className="flex items-center gap-4 border-t border-slate-100 pt-6 relative z-10">

@@ -32,7 +32,7 @@ export default function About() {
             <div className="space-y-5 text-text-muted font-dm-sans text-base leading-relaxed">
               <p>
                 I am Muneeb Gulistan, a Web Developer and AI learner currently pursuing a
-                Bachelor's in Artificial Intelligence. I enjoy building modern, responsive,
+                Bachelor&apos;s in Artificial Intelligence. I enjoy building modern, responsive,
                 and creative web applications using new technologies. I have worked on
                 multiple academic and personal projects, including AI-based systems and
                 console applications.

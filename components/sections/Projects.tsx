@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 import Image from 'next/image';
 
 const projects = [
@@ -77,7 +78,7 @@ function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: numbe
         {/* Links (Hover Reveal) */}
         <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
           <a href={project.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-text-muted hover:text-accent-primary hover:scale-110 transition-all shadow-lg">
-            <Github size={18} />
+            <FaGithub size={18} />
           </a>
           <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-text-muted hover:text-accent-glow hover:scale-110 transition-all shadow-lg">
             <ExternalLink size={18} />

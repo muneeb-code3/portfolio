@@ -83,7 +83,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-syne font-extrabold leading-[1.05] mb-5 tracking-tight text-foreground"
           >
-            Hello, I'm <br className="hidden sm:block" />
+            Hello, I&apos;m <br className="hidden sm:block" />
             <span className="gradient-text">Muneeb Gulistan</span>
           </motion.h1>
 
