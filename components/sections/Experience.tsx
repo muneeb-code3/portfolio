@@ -39,14 +39,14 @@ const experience = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 relative">
+    <section id="experience" className="py-20 sm:py-28 relative">
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-accent-primary/5 blur-[100px] pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-16"
         >

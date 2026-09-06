@@ -30,14 +30,14 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-28 relative">
+    <section id="education" className="py-20 sm:py-28 relative">
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent-primary/5 blur-[100px] pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="flex items-start gap-5 mb-16"
         >
@@ -59,8 +59,8 @@ export default function Education() {
           {education.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.2 }}
               className="relative group"

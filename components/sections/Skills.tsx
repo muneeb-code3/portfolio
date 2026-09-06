@@ -27,13 +27,13 @@ const skillsData = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 relative">
+    <section id="skills" className="py-20 sm:py-28 relative">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-accent-primary/5 blur-[100px] -translate-y-1/2" />
       </div>
 
-      <div className="container mx-auto px-6 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.p

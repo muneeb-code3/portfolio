@@ -13,10 +13,10 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-28 relative">
+    <section id="contact" className="py-20 sm:py-28 relative">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-accent-primary/6 blur-[100px] pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.p
@@ -41,8 +41,8 @@ export default function Contact() {
 
           {/* ── Info Side ────────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="space-y-6"
           >
@@ -119,8 +119,8 @@ export default function Contact() {
 
           {/* ── Form Side ────────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="card-shimmer"
           >

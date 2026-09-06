@@ -108,15 +108,15 @@ function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: numbe
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 relative">
+    <section id="projects" className="py-20 sm:py-28 relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-accent-primary/5 blur-[80px] pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-6 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <p className="section-label">My Work</p>
@@ -126,8 +126,8 @@ export default function Projects() {
             </h2>
           </motion.div>
           <motion.p
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-text-muted max-w-sm md:text-right font-dm-sans font-light text-sm leading-relaxed"
           >

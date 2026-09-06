@@ -12,22 +12,22 @@ const infoItems = [
 
 export default function About() {
   return (
-    <section id="about" className="py-28 relative overflow-hidden">
+    <section id="about" className="py-20 sm:py-28 relative overflow-hidden">
       {/* Section glow */}
       <div className="absolute top-1/2 left-1/4 w-[500px] h-[300px] bg-accent-primary/5 blur-[100px] -translate-y-1/2 pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* ── Left: Text ─────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
           >
             <p className="section-label">About Me</p>
-            <h2 className="section-title text-5xl md:text-6xl mb-10">
+            <h2 className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8">
               WHO IS <br />
               <span className="gradient-text">MUNEEB?</span>
             </h2>
@@ -59,10 +59,10 @@ export default function About() {
 
           {/* ── Right: Info Grid ────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
             <div className="grid grid-cols-2 gap-4">
               {infoItems.map((item, idx) => (
