@@ -7,33 +7,69 @@ import { Code, Brain, Video } from 'lucide-react';
 const skillsData = [
   {
     category: 'Development',
-    icon: <Code size={28} />,
-    color: 'from-[#c88a2a] to-[#f5c96a]',
-    skills: ['HTML', 'CSS', 'Python', 'C++'],
+    icon: <Code size={24} />,
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-100',
+    progressColor: 'bg-blue-600',
+    skills: [
+      { name: 'HTML / CSS / Tailwind', level: 95 },
+      { name: 'React / Next.js', level: 85 },
+      { name: 'Python', level: 80 },
+      { name: 'C++', level: 70 },
+    ],
   },
   {
     category: 'AI & Tools',
-    icon: <Brain size={28} />,
-    color: 'from-[#7b5ea7] to-[#c88a2a]',
-    skills: ['Claude AI', 'Gemini AI', 'ChatGPT', 'Google AI Studio', 'Canva'],
+    icon: <Brain size={24} />,
+    color: 'text-indigo-600',
+    bgColor: 'bg-indigo-100',
+    progressColor: 'bg-indigo-600',
+    skills: [
+      { name: 'Claude / Gemini / ChatGPT', level: 95 },
+      { name: 'Google AI Studio', level: 85 },
+      { name: 'Prompt Engineering', level: 90 },
+      { name: 'AI Integrations', level: 75 },
+    ],
   },
   {
-    category: 'Editing & Productivity',
-    icon: <Video size={28} />,
-    color: 'from-[#c88a2a] to-[#e5a830]',
-    skills: ['CapCut', 'InShot', 'MS Office (Word, Excel, PowerPoint)'],
+    category: 'Productivity & Media',
+    icon: <Video size={24} />,
+    color: 'text-cyan-600',
+    bgColor: 'bg-cyan-100',
+    progressColor: 'bg-cyan-600',
+    skills: [
+      { name: 'CapCut & InShot', level: 90 },
+      { name: 'Canva Design', level: 85 },
+      { name: 'MS Office Suite', level: 95 },
+      { name: 'Content Creation', level: 85 },
+    ],
   },
 ];
+
+const ProgressBar = ({ name, level, color }: { name: string, level: number, color: string }) => {
+  return (
+    <div className="mb-4 last:mb-0">
+      <div className="flex justify-between items-center mb-1.5">
+        <span className="font-dm-sans text-xs font-bold text-text-muted uppercase tracking-wide">{name}</span>
+        <span className="font-dm-sans text-xs font-bold text-text-muted">{level}%</span>
+      </div>
+      <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${level}%` }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className={`h-full rounded-full ${color}`}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default function Skills() {
   return (
     <section id="skills" className="py-20 sm:py-28 relative">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-accent-primary/5 blur-[100px] -translate-y-1/2" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.p
@@ -48,51 +84,40 @@ export default function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="section-title text-4xl md:text-5xl lg:text-6xl"
+            className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
           >
-            MY <span className="gradient-text">SKILLS</span>
+            MY <span className="text-accent-glow">SKILLS</span>
           </motion.h2>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {skillsData.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15 }}
               whileHover={{ y: -8 }}
-              className="group card-shimmer"
+              className="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgba(30,58,138,0.06)] border border-slate-100 transition-all duration-300 relative overflow-hidden"
             >
-              <div className="bg-card-bg p-8 border border-border-card hover:border-accent-primary transition-all duration-400 h-full flex flex-col relative overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
-                {/* Top gradient line */}
-                <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${item.color} opacity-60 group-hover:opacity-100 transition-opacity duration-400`} />
+              {/* Top Accent Line */}
+              <div className={`absolute top-0 left-0 right-0 h-1.5 ${item.progressColor} opacity-80`} />
 
-                {/* Icon */}
-                <div className={`mb-7 w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br ${item.color} text-background shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  {item.icon}
-                </div>
+              {/* Icon */}
+              <div className={`mb-6 w-14 h-14 flex items-center justify-center rounded-2xl ${item.bgColor} ${item.color}`}>
+                {item.icon}
+              </div>
 
-                <h4 className="text-lg font-syne font-bold uppercase text-foreground group-hover:text-accent-glow transition-colors duration-300 mb-6">
-                  {item.category}
-                </h4>
+              <h4 className="text-xl font-syne font-bold text-foreground mb-8">
+                {item.category}
+              </h4>
 
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {item.skills.map((skill, sIdx) => (
-                    <motion.span
-                      key={sIdx}
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 + sIdx * 0.06 }}
-                      className="px-3 py-1.5 text-[10px] glass border-border-default text-text-muted font-dm-sans font-semibold tracking-widest uppercase rounded-full group-hover:border-accent-primary/50 group-hover:text-accent-primary transition-all duration-300"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
+              <div className="space-y-2">
+                {item.skills.map((skill, sIdx) => (
+                  <ProgressBar key={sIdx} name={skill.name} level={skill.level} color={item.progressColor} />
+                ))}
               </div>
             </motion.div>
           ))}

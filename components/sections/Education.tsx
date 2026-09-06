@@ -2,105 +2,95 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 
 const education = [
   {
     year: 'Present',
     degree: 'BS Artificial Intelligence (Sem 2)',
     school: 'Pak Austria Institute',
+    location: 'Haripur, Pakistan',
     desc: 'Currently pursuing an advanced degree in AI, focusing on machine learning and software engineering foundations.',
-    accent: 'from-[#c88a2a] to-[#f5c96a]',
+    color: 'text-blue-600',
+    bg: 'bg-blue-100',
   },
   {
     year: '2022 – 2024',
     degree: 'FSc (Intermediate)',
     school: 'Modernage Public School',
+    location: 'Abbottabad, Pakistan',
     desc: 'Pre-Engineering track with a focus on Mathematics and Physics.',
-    accent: 'from-[#7b5ea7] to-[#c88a2a]',
+    color: 'text-indigo-600',
+    bg: 'bg-indigo-100',
   },
   {
     year: '2020 – 2022',
     degree: 'Matriculation',
     school: 'Tameeriwattan Public School',
+    location: 'Abbottabad, Pakistan',
     desc: 'Completed secondary education with high honors in Science stream.',
-    accent: 'from-[#c88a2a] to-[#e5a830]',
+    color: 'text-cyan-600',
+    bg: 'bg-cyan-100',
   },
 ];
 
 export default function Education() {
   return (
     <section id="education" className="py-20 sm:py-28 relative">
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent-primary/5 blur-[100px] pointer-events-none -z-10" />
-
       <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-start gap-5 mb-16"
+          className="flex flex-col items-center text-center mb-16"
         >
-          <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-accent-primary to-accent-glow text-background shadow-xl flex-shrink-0 mt-1">
-            <GraduationCap size={28} />
+          <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-50 text-accent-primary mb-6">
+            <GraduationCap size={32} />
           </div>
-          <div>
-            <p className="section-label">Learning Path</p>
-            <h2 className="section-title text-4xl md:text-5xl lg:text-6xl">
-              Academic <span className="gradient-text">Journey</span>
-            </h2>
-          </div>
+          <p className="section-label justify-center">Learning Path</p>
+          <h2 className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            Academic <span className="text-accent-glow">Journey</span>
+          </h2>
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative ml-4 md:ml-10 pl-10 border-l-2 border-gradient-to-b border-border-card space-y-10"
-             style={{ borderImage: 'linear-gradient(to bottom, #c88a2a, rgba(200,138,42,0.1)) 1' }}
-        >
+        <div className="relative border-l-2 border-slate-200 ml-4 md:ml-10 space-y-12 pb-8">
           {education.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
-              className="relative group"
+              initial={{ opacity: 0, x: -20, y: 20 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: idx * 0.15 }}
+              className="relative pl-10 md:pl-16"
             >
               {/* Timeline dot */}
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.25 + 0.1, type: 'spring', stiffness: 200 }}
-                className="absolute -left-[25px] top-5 w-5 h-5 rounded-full border-2 border-accent-primary bg-[#04030a] flex items-center justify-center shadow-[0_0_0_4px_rgba(200,138,42,0.12),0_0_20px_rgba(200,138,42,0.2)] z-10"
-              >
-                <div className="w-2 h-2 rounded-full bg-accent-glow animate-pulse" />
-              </motion.div>
+              <div className={`absolute -left-[11px] top-1 w-5 h-5 rounded-full border-4 border-white ${item.bg} flex items-center justify-center shadow-sm`}>
+                <div className={`w-2 h-2 rounded-full ${item.bg.replace('100', '500')}`} />
+              </div>
 
               {/* Card */}
-              <motion.div
-                whileHover={{ x: 6, transition: { duration: 0.2 } }}
-                className="group card-shimmer"
-              >
-                <div className="bg-card-bg p-8 border border-border-card hover:border-accent-primary transition-all duration-400 relative overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
-                  {/* Top accent line */}
-                  <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${item.accent} opacity-60 group-hover:opacity-100 transition-opacity duration-400`} />
-
-                  {/* Year badge */}
-                  <span className={`inline-block text-[9px] font-dm-sans font-bold uppercase tracking-[3px] px-3 py-1 rounded-full bg-gradient-to-r ${item.accent} text-background mb-4`}>
-                    {item.year}
+              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-[0_4px_20px_rgba(30,58,138,0.04)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(30,58,138,0.08)] transition-all duration-300">
+                <div className="flex flex-wrap gap-4 items-center mb-4">
+                  <span className={`inline-flex items-center gap-1.5 text-[10px] font-dm-sans font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg ${item.bg} ${item.color}`}>
+                    <Calendar size={12} /> {item.year}
                   </span>
-
-                  <h3 className="text-2xl font-syne font-bold text-foreground group-hover:text-accent-glow transition-colors duration-300 mb-1">
-                    {item.degree}
-                  </h3>
-                  <h4 className="text-sm font-dm-sans font-semibold text-accent-hover mb-4 uppercase tracking-widest">
-                    {item.school}
-                  </h4>
-                  <p className="text-text-muted font-dm-sans font-light leading-relaxed text-sm">
-                    {item.desc}
-                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-dm-sans font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600">
+                    <MapPin size={12} /> {item.location}
+                  </span>
                 </div>
-              </motion.div>
+
+                <h3 className="text-xl sm:text-2xl font-syne font-bold text-foreground mb-2">
+                  {item.degree}
+                </h3>
+                <h4 className="text-sm font-dm-sans font-bold text-accent-primary mb-4 uppercase tracking-wide">
+                  {item.school}
+                </h4>
+                <p className="text-text-muted font-dm-sans text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

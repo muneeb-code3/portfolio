@@ -1,44 +1,51 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { ExternalLink, Github } from 'lucide-react';
+import Image from 'next/image';
 
 const projects = [
   {
     title: 'AI Resume Forge',
-    description: 'A university project that uses AI to build and optimize professional resumes based on user skills.',
-    tech: ['Next.js', 'Claude API', 'Tailwind'],
+    description: 'A university project that uses AI to build and optimize professional resumes based on user skills. Generates high-converting formats automatically.',
+    tech: ['Next.js', 'Claude API', 'Tailwind CSS'],
     category: 'University',
-    accent: 'from-[#c88a2a] to-[#f5c96a]',
-  },
-  {
-    title: 'AI Quiz App',
-    description: 'A console-based intelligent quiz application that adapts difficulty based on performance.',
-    tech: ['Python', 'AI Logic'],
-    category: 'Console',
-    accent: 'from-[#7b5ea7] to-[#c88a2a]',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop',
+    github: 'https://github.com/muneeb-code3',
+    demo: '#',
+    span: 'col-span-1 md:col-span-2 lg:col-span-2 row-span-2' // Large featured card
   },
   {
     title: 'Medic Website',
-    description: 'A comprehensive platform connecting patients with doctors for appointments and consultations.',
+    description: 'A platform connecting patients with doctors for appointments.',
     tech: ['React', 'Node.js', 'MongoDB'],
-    category: 'Web',
-    accent: 'from-[#c88a2a] to-[#e5a830]',
+    category: 'Web App',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173ff9e5eb3?q=80&w=800&auto=format&fit=crop',
+    github: 'https://github.com/muneeb-code3',
+    demo: '#',
+    span: 'col-span-1 lg:col-span-1 row-span-1'
+  },
+  {
+    title: 'AI Quiz App',
+    description: 'An intelligent quiz app that adapts difficulty based on performance.',
+    tech: ['Python', 'AI Logic'],
+    category: 'Console',
+    image: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=800&auto=format&fit=crop',
+    github: 'https://github.com/muneeb-code3',
+    demo: '#',
+    span: 'col-span-1 lg:col-span-1 row-span-1'
   },
   {
     title: 'Undo Redo Engine',
-    description: 'A robust command pattern engine in C++ supporting infinite undo and redo operations.',
+    description: 'Robust command pattern engine in C++ supporting infinite undo/redo.',
     tech: ['C++', 'Data Structures'],
     category: 'Desktop',
-    accent: 'from-[#e5a830] to-[#f5c96a]',
-  },
-  {
-    title: 'Console Mini OS',
-    description: 'A simulated mini operating system built in C++ with basic file management and shell commands.',
-    tech: ['C++', 'Operating Systems'],
-    category: 'System',
-    accent: 'from-[#c88a2a] to-[#7b5ea7]',
-  },
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
+    github: 'https://github.com/muneeb-code3',
+    demo: '#',
+    span: 'col-span-1 md:col-span-2 lg:col-span-3 row-span-1' // Wide card
+  }
 ];
 
 function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: number }) {
@@ -46,61 +53,58 @@ function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: numbe
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: idx * 0.1 }}
-      whileHover={{ y: -10 }}
-      className="group card-shimmer h-full"
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: idx * 0.1, duration: 0.6 }}
+      className={`group bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(30,58,138,0.06)] border border-slate-100 flex flex-col ${project.span}`}
     >
-      <div className="bg-card-bg border border-border-card hover:border-accent-primary transition-all duration-400 h-full flex flex-col relative overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
-        {/* Top gradient accent line */}
-        <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${project.accent} opacity-70 group-hover:opacity-100 transition-opacity duration-400`} />
-
-        {/* Category pill */}
-        <div className="px-8 pt-8 pb-0">
-          <span className={`inline-block text-[9px] font-dm-sans font-bold uppercase tracking-[3px] px-3 py-1 rounded-full bg-gradient-to-r ${project.accent} text-background mb-4`}>
+      {/* Image Container */}
+      <div className="relative h-48 sm:h-56 lg:h-64 w-full overflow-hidden bg-slate-100">
+        <Image 
+          src={project.image} 
+          alt={project.title} 
+          fill 
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-80" />
+        
+        {/* Category Pill */}
+        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full">
+          <span className="text-[10px] font-dm-sans font-bold uppercase tracking-widest text-accent-primary">
             {project.category}
           </span>
-
-          <h3 className="text-xl font-syne font-bold text-foreground group-hover:text-accent-glow transition-colors duration-300 mb-3 leading-tight">
-            {project.title}
-          </h3>
-          <p className="text-text-muted font-dm-sans font-light text-sm leading-relaxed mb-6">
-            {project.description}
-          </p>
         </div>
 
+        {/* Links (Hover Reveal) */}
+        <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+          <a href={project.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-text-muted hover:text-accent-primary hover:scale-110 transition-all shadow-lg">
+            <Github size={18} />
+          </a>
+          <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-text-muted hover:text-accent-glow hover:scale-110 transition-all shadow-lg">
+            <ExternalLink size={18} />
+          </a>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-6 sm:p-8 flex-1 flex flex-col">
+        <h3 className="text-xl sm:text-2xl font-syne font-bold text-foreground mb-3 group-hover:text-accent-glow transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-text-muted font-dm-sans text-sm leading-relaxed mb-6 flex-1">
+          {project.description}
+        </p>
+
         {/* Tech tags */}
-        <div className="px-8 pb-6 flex flex-wrap gap-2 mt-auto">
+        <div className="flex flex-wrap gap-2 mt-auto">
           {project.tech.map((t, i) => (
             <span
               key={i}
-              className="text-[9px] px-3 py-1.5 glass border-border-default text-text-muted uppercase font-dm-sans font-semibold tracking-widest rounded-full group-hover:border-accent-primary/40 group-hover:text-accent-primary transition-all duration-300"
+              className="text-[10px] px-3 py-1.5 bg-slate-50 border border-slate-200 text-text-muted uppercase font-dm-sans font-bold tracking-widest rounded-lg"
             >
               {t}
             </span>
           ))}
         </div>
-
-        {/* Action buttons */}
-        <div className="px-8 pb-8 flex gap-3 border-t border-border-default pt-5">
-          <motion.button
-            whileHover={{ scale: 1.1, rotate: -3 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-10 h-10 flex items-center justify-center glass border-border-default text-text-muted hover:border-accent-primary hover:text-accent-primary transition-all duration-300 rounded-full"
-          >
-            <FaGithub size={16} />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.1, rotate: 3 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-10 h-10 flex items-center justify-center glass border-border-default text-text-muted hover:border-accent-primary hover:text-accent-primary transition-all duration-300 rounded-full"
-          >
-            <FaExternalLinkAlt size={14} />
-          </motion.button>
-        </div>
-
-        {/* Corner decoration */}
-        <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-accent-primary/6 to-transparent rounded-tl-full" />
       </div>
     </motion.div>
   );
@@ -108,35 +112,34 @@ function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: numbe
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 sm:py-28 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-accent-primary/5 blur-[80px] pointer-events-none -z-10" />
-
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+    <section id="projects" className="py-20 sm:py-28 relative bg-slate-50/50">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <p className="section-label">My Work</p>
-            <h2 className="section-title text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
               FEATURED <br />
-              <span className="gradient-text">PROJECTS</span>
+              <span className="text-accent-primary">PROJECTS</span>
             </h2>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-text-muted max-w-sm md:text-right font-dm-sans font-light text-sm leading-relaxed"
+            className="text-text-muted max-w-md md:text-right font-dm-sans text-sm leading-relaxed"
           >
             A selection of my recent academic and personal projects exploring
             AI, Web, and System development.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Asymmetric Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(0,_1fr)]">
           {projects.map((project, idx) => (
             <ProjectCard key={idx} project={project} idx={idx} />
           ))}
