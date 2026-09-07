@@ -13,7 +13,7 @@ const projects = [
     tech: ['Next.js', 'Claude API', 'Tailwind CSS'],
     category: 'University',
     image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop',
-    github: 'https://github.com/muneeb-code3',
+    github: 'https://github.com/Muneebgulistan',
     demo: '#',
     span: 'col-span-1 md:col-span-2 lg:col-span-2 row-span-2' // Large featured card
   },
@@ -23,7 +23,7 @@ const projects = [
     tech: ['React', 'Node.js', 'MongoDB'],
     category: 'Web App',
     image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=800&auto=format&fit=crop',
-    github: 'https://github.com/muneeb-code3',
+    github: 'https://github.com/Muneebgulistan',
     demo: '#',
     span: 'col-span-1 lg:col-span-1 row-span-1'
   },
@@ -33,7 +33,7 @@ const projects = [
     tech: ['Python', 'AI Logic'],
     category: 'Console',
     image: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=800&auto=format&fit=crop',
-    github: 'https://github.com/muneeb-code3',
+    github: 'https://github.com/Muneebgulistan',
     demo: '#',
     span: 'col-span-1 lg:col-span-1 row-span-1'
   },
@@ -43,7 +43,7 @@ const projects = [
     tech: ['C++', 'Data Structures'],
     category: 'Desktop',
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
-    github: 'https://github.com/muneeb-code3',
+    github: 'https://github.com/Muneebgulistan',
     demo: '#',
     span: 'col-span-1 md:col-span-2 lg:col-span-3 row-span-1' // Wide card
   }

@@ -31,7 +31,7 @@ const pinnedRepos = [
 ];
 
 export default function GithubStats() {
-  const username = "muneeb-code3"; // Using the github username provided
+  const username = "Muneebgulistan"; // Using the github username provided
 
   return (
     <section id="github" className="py-20 sm:py-28 relative bg-slate-50/50">

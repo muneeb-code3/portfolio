@@ -6,7 +6,7 @@ import { Mail, MapPin, Send } from 'lucide-react';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 
 const socials = [
-  { icon: FaGithub,    href: 'https://github.com/muneeb-code3',              label: 'GitHub',    color: 'hover:bg-slate-900 hover:text-white hover:border-slate-900' },
+  { icon: FaGithub,    href: 'https://github.com/Muneebgulistan',              label: 'GitHub',    color: 'hover:bg-slate-900 hover:text-white hover:border-slate-900' },
   { icon: FaLinkedin,  href: 'https://www.linkedin.com/in/muneeb-gulistan/',  label: 'LinkedIn',  color: 'hover:bg-[#0077B5] hover:text-white hover:border-[#0077B5]' },
   { icon: FaInstagram, href: 'https://www.instagram.com/muneebgulistan/',     label: 'Instagram', color: 'hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C]' },
 ];

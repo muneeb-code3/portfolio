@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/Instagram-Follow-E1306C?style=for-the-badge&logo=instagram&logoColor=white" />
 </a>
 &nbsp;
-<a href="https://github.com/muneeb-code3">
+<a href="https://github.com/Muneebgulistan">
   <img src="https://img.shields.io/badge/GitHub-muneeb--code3-181717?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
@@ -195,7 +195,7 @@ The entire portfolio is built on a consistent design token system:
 | 📧 Email | muneegulistan@gmail.com |
 | 💼 LinkedIn | [linkedin.com/in/muneeb-gulistan](https://www.linkedin.com/in/muneeb-gulistan/) |
 | 📸 Instagram | [@muneebgulistan](https://www.instagram.com/muneebgulistan/) |
-| 💻 GitHub | [github.com/muneeb-code3](https://github.com/muneeb-code3) |
+| 💻 GitHub | [github.com/Muneebgulistan](https://github.com/Muneebgulistan) |
 
 </div>
 
