@@ -114,7 +114,9 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form className="bg-white p-8 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgba(30,58,138,0.08)] border border-slate-100 space-y-6">
+            <form action="https://api.web3forms.com/submit" method="POST" className="bg-white p-8 sm:p-10 rounded-3xl shadow-[0_8px_30px_rgba(30,58,138,0.08)] border border-slate-100 space-y-6">
+              <input type="hidden" name="access_key" value="680db026-86f8-44b2-b752-9638243ced9e" />
+
               <h3 className="text-2xl font-syne font-bold text-foreground mb-6">
                 Send me a message
               </h3>
@@ -125,6 +127,8 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  required
                   placeholder="John Doe"
                   className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent-glow focus:ring-4 focus:ring-accent-glow/10 outline-none transition-all font-dm-sans text-sm"
                 />
@@ -136,6 +140,8 @@ export default function Contact() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  required
                   placeholder="john@example.com"
                   className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent-glow focus:ring-4 focus:ring-accent-glow/10 outline-none transition-all font-dm-sans text-sm"
                 />
@@ -146,6 +152,8 @@ export default function Contact() {
                   Message
                 </label>
                 <textarea
+                  name="message"
+                  required
                   rows={4}
                   placeholder="Tell me about your project..."
                   className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-accent-glow focus:ring-4 focus:ring-accent-glow/10 outline-none transition-all font-dm-sans text-sm resize-none"
