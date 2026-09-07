@@ -125,7 +125,7 @@ export default function Hero() {
               </motion.button>
             </Link>
 
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full xs:w-auto">
+            <a href="/resume.docx" target="_blank" rel="noopener noreferrer" className="w-full xs:w-auto">
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}

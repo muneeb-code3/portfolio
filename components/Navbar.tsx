@@ -75,7 +75,7 @@ export default function Navbar() {
             transition={{ delay: 0.6 }}
             className="flex items-center gap-3 ml-2"
           >
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/resume.docx" target="_blank" rel="noopener noreferrer">
               <button className="flex items-center gap-2 btn-secondary px-4 py-2 text-[10px] font-dm-sans font-bold uppercase tracking-[1.5px] rounded-lg">
                 <FileText size={14} /> Resume
               </button>
@@ -131,7 +131,7 @@ export default function Navbar() {
                   </motion.div>
                 ))}
                 <div className="pt-4 border-t border-border-default flex flex-col gap-3">
-                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <a href="/resume.docx" target="_blank" rel="noopener noreferrer" className="w-full">
                     <button className="btn-secondary w-full py-3 flex items-center justify-center gap-2 text-[10px] font-dm-sans font-bold uppercase tracking-[2px] rounded-xl">
                       <FileText size={14} /> Download Resume
                     </button>
