@@ -22,7 +22,7 @@ const projects = [
     description: 'A platform connecting patients with doctors for appointments.',
     tech: ['React', 'Node.js', 'MongoDB'],
     category: 'Web App',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173ff9e5eb3?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=800&auto=format&fit=crop',
     github: 'https://github.com/muneeb-code3',
     demo: '#',
     span: 'col-span-1 lg:col-span-1 row-span-1'
@@ -91,7 +91,7 @@ function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: numbe
         <h3 className="text-xl sm:text-2xl font-syne font-bold text-foreground mb-3 group-hover:text-accent-glow transition-colors">
           {project.title}
         </h3>
-        <p className="text-text-muted font-dm-sans text-sm leading-relaxed mb-6 flex-1">
+        <p className="text-text-muted font-dm-sans text-sm leading-relaxed mb-6">
           {project.description}
         </p>
 

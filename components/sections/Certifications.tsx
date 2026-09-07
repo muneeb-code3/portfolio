@@ -57,7 +57,7 @@ export default function Certifications() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            className="section-title text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl break-words"
           >
             MY <span className="text-accent-primary">CERTIFICATIONS</span>
           </motion.h2>
