@@ -11,9 +11,6 @@ const navLinks = [
   { name: 'Skills',       to: 'skills'       },
   { name: 'Projects',     to: 'projects'     },
   { name: 'Services',     to: 'services'     },
-  { name: 'Cases',        to: 'casestudies'  },
-  { name: 'Blog',         to: 'blog'         },
-  { name: 'Testimonials', to: 'testimonials' },
   { name: 'Contact',      to: 'contact'      },
 ];
 
